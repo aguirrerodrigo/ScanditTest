@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="com.Reviva.PSDSAppDev"
+    Publisher="CN=ca294005-2149-4b7c-adba-fafd20d3cee3"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>ScanditTest.UWP</DisplayName>
+    <PublisherDisplayName>Reviva</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="ScanditTest.UWP.App">
+      <uap:VisualElements
+        DisplayName="ScanditTest.UWP"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="ScanditTest.UWP"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="privateNetworkClientServer" />
+    <uap:Capability Name="musicLibrary" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="videosLibrary" />
+    <DeviceCapability Name="webcam" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="location"/>
+  </Capabilities>
+
+  <Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>VideoInputRT.dll</Path>
+        <ActivatableClass ActivatableClassId="VideoInputRT.FrameAccess" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+  
+</Package>
